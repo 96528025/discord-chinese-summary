@@ -19,6 +19,19 @@
 
 所以做了这个工具。
 
+### 为什么不用现有工具？
+
+在动手之前先调研了 GitHub 上的开源项目，发现了不少：
+
+| 项目类型 | 代表项目 | 问题 |
+|---------|---------|------|
+| AI 总结 Bot | Discord-AI-Summarizer | 需要服务器管理员权限才能添加 Bot |
+| 翻译 Bot | open-discord-translator | 同上，需要管理员权限 |
+| 本地 AI 摘要 | elizaOS/discord-summarizer | 需要本地安装 AI 模型，配置复杂 |
+| 聊天导出 | DiscordChatExporter | 可以用，但 Mac Gatekeeper 会删除未签名的程序 |
+
+结论：没有一个现成工具能满足"非管理员 + 中文摘要 + 新手友好"这三个条件，所以自己用 Python 写了一个。
+
 ### 效果示例
 
 ```
@@ -124,6 +137,19 @@ I joined several English Discord servers (e.g. 找工2026SWE for SWE job hunting
 3. Not enough time to read everything
 
 So I built this tool.
+
+### Why Not Use an Existing Tool?
+
+Before building, I researched open source projects on GitHub and found several options:
+
+| Type | Example Project | Problem |
+|------|----------------|---------|
+| AI Summary Bot | Discord-AI-Summarizer | Requires server admin permission to add the bot |
+| Translation Bot | open-discord-translator | Same — requires server admin |
+| Local AI Summary | elizaOS/discord-summarizer | Requires installing a local AI model, too complex |
+| Chat Exporter | DiscordChatExporter | Workable, but Mac Gatekeeper deletes unsigned binaries |
+
+Conclusion: No existing tool met all three requirements — no admin needed, Chinese output, beginner-friendly. So I wrote one in Python.
 
 ### Prerequisites
 
