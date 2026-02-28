@@ -106,6 +106,7 @@ python discord_summary.py
 | Console 粘贴代码被 Discord 拦截 | Discord 反诈提示 | 改用 Network 标签观察请求头获取 Token |
 | `ModuleNotFoundError: requests` | 依赖未安装 | `pip install requests` |
 | API 余额不足 | 新账号需要手动充值 | 在 console.anthropic.com 充值 |
+| commit 作者是错误的 GitHub 账号 | 全局 git 配置用的是旧邮箱 | 用 `git config user.email` 为该仓库单独设置正确邮箱，再用 `git rebase --root --exec 'git commit --amend --reset-author --no-edit'` 重写历史，最后 `git push --force` |
 
 ---
 
@@ -195,6 +196,7 @@ This is one of my first projects as a beginner coder. Here are the obstacles I r
 | Console paste blocked by Discord | Discord's anti-scam warning | Used Network tab to find Token in request headers instead |
 | `ModuleNotFoundError: requests` | Missing dependency | `pip install requests` |
 | API credit balance too low | New accounts need manual top-up | Added credits at console.anthropic.com |
+| Commits attributed to wrong GitHub account | Global git config was using an old/expiring email | Set the correct email for the repo with `git config user.email`, rewrote commit history with `git rebase --root --exec 'git commit --amend --reset-author --no-edit'`, then `git push --force` |
 
 ---
 
