@@ -1,10 +1,16 @@
-# Discord 中文摘要工具
+# Discord 中文摘要工具 | Discord Chinese Summary Tool
+
+[中文](#中文) | [English](#english)
+
+---
+
+## 中文
 
 一个帮助中文用户快速理解英文 Discord 社群动态的工具。
 
 自动读取 Discord 频道消息，调用 Claude AI 翻译并生成中文摘要，让你不用花时间看密集的英文聊天记录也能掌握重点。
 
-## 背景
+### 背景
 
 加入了一些英文 Discord 社群（如找工2026SWE、Google Gemini Hackathon），但面临三个问题：
 1. 消息太多，根本看不过来
@@ -13,7 +19,7 @@
 
 所以做了这个工具。
 
-## 效果示例
+### 效果示例
 
 ```
 =======================================================
@@ -38,13 +44,13 @@
 求职季焦虑感明显，大家都在互相分享信息和鼓励。
 ```
 
-## 使用前提
+### 使用前提
 
 - Python 3.x
 - [Anthropic API Key](https://console.anthropic.com)（需要充值，处理一次约 $0.01）
 - Discord 账号的 Token（从浏览器开发者工具获取）
 
-## 安装
+### 安装
 
 ```bash
 # 创建虚拟环境
@@ -55,7 +61,7 @@ source discord-env/bin/activate
 pip install -r requirements.txt
 ```
 
-## 使用方法
+### 使用方法
 
 ```bash
 # 设置环境变量
@@ -71,7 +77,7 @@ python discord_summary.py
 2. 从频道列表中选择想要总结的频道
 3. 等待生成，获得中文摘要
 
-## 如何获取 Discord Token
+### 如何获取 Discord Token
 
 1. 浏览器打开 [discord.com/app](https://discord.com/app)
 2. 按 `Command + Option + I` 打开开发者工具
@@ -82,22 +88,13 @@ python discord_summary.py
 
 > ⚠️ Token 相当于账号密码，不要泄露给任何人
 
-## 技术栈
+### 技术栈
 
 - Python 3
 - [Anthropic Claude API](https://anthropic.com) — 翻译和摘要
 - Discord REST API — 读取消息
 
-## 项目结构
-
-```
-discord-chinese-summary/
-├── discord_summary.py   # 主脚本
-├── requirements.txt     # 依赖列表
-└── README.md
-```
-
-## 学习历程
+### 学习历程
 
 这是我作为编程新手独立完成的第一批项目之一，记录一下踩过的坑：
 
@@ -112,4 +109,93 @@ discord-chinese-summary/
 
 ---
 
-*用 Claude Code 辅助完成*
+## English
+
+A tool that helps Chinese-speaking users quickly understand what's happening in English Discord communities.
+
+It reads Discord channel messages via API and uses Claude AI to generate concise Chinese summaries — so you can stay up to date without reading through hundreds of English messages.
+
+### Background
+
+I joined several English Discord servers (e.g. 找工2026SWE for SWE job hunting, Google Gemini Hackathon) but faced three problems:
+1. Too many messages to keep up with
+2. English is hard to read, especially internet slang
+3. Not enough time to read everything
+
+So I built this tool.
+
+### Prerequisites
+
+- Python 3.x
+- [Anthropic API Key](https://console.anthropic.com) (costs ~$0.01 per run)
+- Your Discord user Token (retrieved from browser DevTools)
+
+### Installation
+
+```bash
+# Create a virtual environment
+python3 -m venv discord-env
+source discord-env/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### Usage
+
+```bash
+# Set environment variables
+export DISCORD_TOKEN=your_discord_token
+export ANTHROPIC_API_KEY=your_claude_api_key
+
+# Run
+python discord_summary.py
+```
+
+After running:
+1. Enter the server ID (right-click the server icon in Discord → Copy Server ID)
+2. Select which channels to summarize from the list
+3. Wait a few seconds and receive your Chinese summary
+
+### How to Get Your Discord Token
+
+1. Open [discord.com/app](https://discord.com/app) in Chrome
+2. Press `Command + Option + I` to open DevTools
+3. Click the **Network** tab
+4. Click any channel in Discord
+5. Find any API request → Request Headers → `authorization` field
+6. Copy that value — that's your Token
+
+> ⚠️ Your Token is equivalent to your password. Never share it with anyone.
+
+### Tech Stack
+
+- Python 3
+- [Anthropic Claude API](https://anthropic.com) — translation and summarization
+- Discord REST API — fetching messages
+
+### Project Structure
+
+```
+discord-chinese-summary/
+├── discord_summary.py   # main script
+├── requirements.txt     # dependencies
+└── README.md
+```
+
+### Lessons Learned
+
+This is one of my first projects as a beginner coder. Here are the obstacles I ran into:
+
+| Problem | Cause | Solution |
+|---------|-------|----------|
+| `pip: command not found` | pip not available by default on Mac | Use `pip3` instead |
+| `pip3` externally-managed error | macOS system protection | Create a virtual environment (venv) |
+| DiscordChatExporter deleted by Mac | Gatekeeper blocked unsigned binary | Dropped the tool, used Discord API directly in Python |
+| Console paste blocked by Discord | Discord's anti-scam warning | Used Network tab to find Token in request headers instead |
+| `ModuleNotFoundError: requests` | Missing dependency | `pip install requests` |
+| API credit balance too low | New accounts need manual top-up | Added credits at console.anthropic.com |
+
+---
+
+*Built with assistance from Claude Code*
